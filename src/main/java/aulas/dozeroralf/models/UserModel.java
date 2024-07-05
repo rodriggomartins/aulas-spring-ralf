@@ -2,6 +2,11 @@ package aulas.dozeroralf.models;
 
 import java.util.UUID;
 
+import java.time.Instant;
+
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,19 +24,23 @@ public class UserModel {
   private UUID id;
 
   @Column(name = "name", nullable = false)
-  public String name;
+  private String name;
 
   @Column(name = "email", nullable = false, unique = true)
   private String email;
 
-  @Column(name = "sector", nullable = false, unique = true)
-  private String setor;
-
-  @Column(name = "office")
+  @Column(name = "cargo", nullable = false)
   private String cargo;
 
-  @Column(name = "code")
-  private int codigo;
+  @Column(name = "departamento", nullable = false)
+  private String departamento;
+ 
+  @CreationTimestamp
+  private Instant createdAt;
+  
+  @UpdateTimestamp
+  private Instant updatedAt;
+  
   
   public void setId(UUID id){
     this.id = id;
@@ -53,20 +62,32 @@ public class UserModel {
     return email;
   }
 
-  public void setSector(String cargo){
+  public void setCargo(String cargo){
     this.cargo = cargo;
   }
 
-  public String getSector(){
+  public void setDepartamento(String departamento){
+    this.departamento = departamento;
+  }
+
+  public String getCargo(){
     return cargo;
   }
-
-  public void setCodigo(int codigo){
-    this.codigo = codigo;
+  
+  public void setCreated(Instant createdAt){
+    this.createdAt = createdAt;
   }
 
-  public int getCodigo(){
-    return codigo;
+   public Instant getCreated(){
+    return createdAt;
+  }
+
+  public void setUpdated(Instant updatedAt){
+    this.updatedAt = updatedAt;
+  }
+
+  public Instant getUpdated(){
+    return updatedAt;
   }
   
 }
