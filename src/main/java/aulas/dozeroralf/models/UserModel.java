@@ -46,6 +46,10 @@ public class UserModel {
     this.id = id;
   }
 
+  public UUID getUuid(){
+    return id;
+  }
+
   public void setName(String name){
     this.name = name;
   }

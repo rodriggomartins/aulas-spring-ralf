@@ -5,6 +5,7 @@ import aulas.dozeroralf.models.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
+
 import java.util.UUID;
 
 
@@ -27,4 +28,24 @@ public interface UserRepository extends JpaRepository<UserModel, UUID> {
   // dentro do<> o tipo de dado que eu quero listar, nesse caso tem que ser o meu model
   // aqui eu to criando meu metodo findAll, eu acho;
   List<UserModel> findAll();
+
+
+
+  // listar unico usuario pelo id
+  // o id-> vem do meu model
+  // aqui ele tem que me retornar o model 
+  /*
+    essa meneira e quando na minha tabela eu to usando o id com a classe Ingeter
+    o Ingeter e uma classe que represent id, essa classe ja vem com o jpa
+    pq na hora de passar aqui no meu repository ele nao aceita os tipo int 
+    findById(int id);
+
+    Quando for listar apaenas um id, eu nao preciso do List, so uso o List
+    quando for usar para retornar um conjuto de dados
+  */
+
+  // aqui e uma forma, para usar com uuid
+  public Usermodel findByUuid(UUID uuid);
+
+
 }

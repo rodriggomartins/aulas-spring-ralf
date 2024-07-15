@@ -45,7 +45,7 @@ public class UsersController {
   // aqui estou crindo a rota de listar os usuarios
   // aqui eu posso colocar um: 
   // publicResponseEnriry<UserModel>criarUsuario(@RequesBody UserModel variavel)
-  // esse save() vem do crud repository... tem nada ver comigo, o spring se vira
+// esse save() vem do crud repository... tem nada ver comigo, o spring se vira
   @PostMapping("/criar")
   public UserModel criarusuario(@RequestBody UserModel user){
     return userRepository.save(user);
