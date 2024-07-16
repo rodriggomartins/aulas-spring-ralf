@@ -42,7 +42,7 @@ public class UserModel {
   private Instant updatedAt;
   
   
-  public void setId(UUID id){
+  public void setUuid(UUID id){
     this.id = id;
   }
 

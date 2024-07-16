@@ -5,7 +5,7 @@ import aulas.dozeroralf.models.UserModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
-
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -42,10 +42,17 @@ public interface UserRepository extends JpaRepository<UserModel, UUID> {
 
     Quando for listar apaenas um id, eu nao preciso do List, so uso o List
     quando for usar para retornar um conjuto de dados
-  */
+  */ 
+ 
+  // aqui ta funcionando, mas depois tenho que saber o pq de ter que colocar um
+  // findUserModelById()
+  
+  UserModel findUserModelById(UUID id);
 
-  // aqui e uma forma, para usar com uuid
-  public Usermodel findByUuid(UUID uuid);
+
+
+  // LEMBRANDO QUE TEM UMA MANEIRA COLOCANDO O OPTIONAL<UserModel>findByUuid(UUID uuid)
+  // mas essa nao funcinou, eu tenho que saber o pq tmb e como funciona
 
 
 }

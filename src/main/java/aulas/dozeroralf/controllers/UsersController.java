@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-
+import java.util.UUID;
 
 import aulas.dozeroralf.models.UserModel;
 import aulas.dozeroralf.repository.UserRepository;
@@ -51,11 +51,20 @@ public class UsersController {
     return userRepository.save(user);
   }
 
-  @GetMapping("/listarusuarios")
+  @GetMapping("/listar")
   // esse List do java util, eu to tazendo la de dentro do meu repository
   // mas eu posso substituir, pelo EntityRespositori<UserModel>, que acho que vendo do meu jpa
   public List<UserModel> listUsers(){
     return userRepository.findAll();
   }
-	
+
+ 
+
+  // o findUserModelById foi criado la no meu repository
+  @GetMapping("/listarid/{id}")
+  public UserModel listarId(@PathVariable UUID id){
+	  return userRepository.findUserModelById(id);
+  }
+
+
 }
